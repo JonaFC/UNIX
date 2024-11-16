@@ -1,4 +1,4 @@
-# Práctica 5 Laboratorio UNIX
+# Práctica 6 Laboratorio UNIX
 # Jonathan Bautista Parra
 ## phpMyAdmin
 
@@ -75,3 +75,41 @@ Ejecuté **pwgen -s 32 1** para generar una cadena segura de 32 caracteres para 
 
 ![](Practica6/unix6.22.png)
 
+Ejuté **nano /usr/share/phpmyadmin/config.inc.php** para abrir el archivo de configuración.
+
+![](Practica6/unix6.36.png)
+
+A **$cfg['blowfish_secret']** le asignamos el valor generado por **pwgen**
+
+![](Practica6/unix6.23.png)
+
+Descomenté las directivas controluser y controlpass eliminando las barras anteriores. Luego actualicé la directiva controlpass para asignarle una nueva contraseña.
+Descomenté toda la sección **Storage database and tables**.
+
+![](Practica6/unix6.24.png)
+
+Agregué una línea más al final del archivo para configurar phpMyAdmin para usar el directorio /var/lib/phpmyadmin/tmp que creé antes como directorio temporal.
+
+![](Practica6/unix6.26.png)
+
+Ejecuté un script SQL para crear las tablas necesarias en MariaDB para el correcto funcionamiento de phpMyAdmin.
+
+![](Practica6/unix6.27.png)
+
+Ingresé a MariaDB y ejecuté los comandos que se muestran a continuación para la creación de los usuarios con los respectivos permisos.
+
+![](Practica6/unix6.28.png)
+![](Practica6/unix6.29.png)
+
+Creé y edité el archivo llamado phpmyadmin.conf en el directorio /etc/apache2/conf-available/:
+
+![](Practica6/unix6.30.png)
+![](Practica6/unix6.31.png)
+
+Habilité la configuración de phpMyAdmin en Apache y recargué la configuración de Apache para aplicar los cambios y hacer que phpMyAdmin esté accesible en el servidor web.
+
+![](Practica6/unix6.32.png)
+
+Acceso exitoso a **phpMyAdmin**
+
+![](Practica6/unix6.35.png)
