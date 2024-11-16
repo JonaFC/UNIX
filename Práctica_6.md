@@ -38,4 +38,40 @@ Guardé los cambios. Luego, recargué la configuración de Apache sin detener el
 ![](Practica6/unix6.12.png)
 
 
+## Instalación de phpMyAdmin y paquetes recomendados
+
+Para esta parte, primero instalé las extensiones adicionales de PHP necesarias para el funcionamiento de phpMyAdmin. Para esto ejecuté **apt install php-mbstring php-zip php-gd**.
+
+![](Practica6/unix6.13.png)
+
+
+Unas instaladas las extensiones, descargué el código fuente de la versión  más reciente de **phpmyadmin.**
+
+![](Practica6/unix6.14.png)
+
+Una vez descargado el código fuente, lo descomprimí usando **tar -xvf phpMyAdmin-5.2.1-all-languages.tar.gz**
+
+![](Practica6/unix6.15.png)
+
+Ejecuté el comando **mv phpMyAdmin-4.9.7-all-languages/ /usr/share/phpmyadmin** para mover el directorio phpMyAdmin-4.9.7-all-languages y todos sus subdirectorios al directorio /usr/share/.
+
+![](Practica6/unix6.17.png)
+
+Ejecué **sudo mkdir -p /var/lib/phpmyadmin/tmp** para crear un directorio temporal para phpMyAdmin. Este directorio es necesario para almacenar archivos temporales que phpMyAdmin pueda necesitar.
+
+![](Practica6/unix6.18.png)
+
+Después ejecuté **chown -R www-data:www-data /var/lib/phpmyadmin** para cambiar el propietario del directorio temporal a www-data, el usuario con el que corre Apache y así garantizar que phpMyAdmin pueda acceder y manipular los archivos en el directorio.
+
+Copié el archivo de configuración de ejemplo de phpMyAdmin a un archivo de configuración real
+
+![](Practica6/unix6.19.png)
+
+Instalé la herramienta pwgen,utilizada para generar contraseñas aleatorias.
+
+![](Practica6/unix6.20.png)
+
+Ejecuté **pwgen -s 32 1** para generar una cadena segura de 32 caracteres para ser utilizada como valor para blowfish_secret.
+
+![](Practica6/unix6.22.png)
 
